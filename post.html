@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Much Water Should You Really Drink Daily? — Threefold</title>
+<meta name="description" content="The 8 glasses a day rule is a myth. Here's what hydration science actually says about how much water you need — and the signs you're not getting enough.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F5F0;
+    --ink:#1F2A24;
+    --gold:#C9A227;
+    --rose:#C97B84;
+    --teal:#4A7C74;
+    --line: rgba(31,42,36,0.14);
+    --max: 1180px;
+    --measure: 700px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.04em; text-transform:uppercase;}
+
+  /* Header (shared with homepage) */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,245,240,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:20px 0;}
+  .logo{font-family:'Fraunces', serif; font-weight:600; font-size:22px; display:flex; align-items:center; gap:10px;}
+  .logo .dots{display:flex; gap:3px;}
+  .logo .dots span{width:7px; height:7px; border-radius:50%; display:inline-block;}
+  .logo .dots span:nth-child(1){background:var(--gold);}
+  .logo .dots span:nth-child(2){background:var(--rose);}
+  .logo .dots span:nth-child(3){background:var(--teal);}
+  nav ul{display:flex; gap:32px; list-style:none;}
+  nav ul li a{font-size:14px; font-weight:600; position:relative; padding-bottom:2px;}
+  nav ul li a::after{content:''; position:absolute; left:0; bottom:-3px; width:0; height:1.5px; background:var(--ink); transition:width 0.25s ease;}
+  nav ul li a:hover::after{width:100%;}
+  .nav-cta{font-size:13px; font-weight:700; padding:9px 18px; background:var(--ink); color:var(--paper); border-radius:100px;}
+  .menu-toggle{display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink);}
+
+  /* Breadcrumb */
+  .breadcrumb{
+    padding:24px 0 0; font-size:13px; color:rgba(31,42,36,0.55);
+  }
+  .breadcrumb a:hover{color:var(--ink);}
+  .breadcrumb span{margin:0 6px;}
+
+  /* Post header */
+  .post-header{
+    max-width:var(--measure); margin:0 auto; padding:36px 32px 0; text-align:left;
+  }
+  .post-tag{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.05em; font-weight:600; color:#9C5560;
+    border:1px solid var(--rose); padding:6px 14px; border-radius:100px; margin-bottom:20px;
+  }
+  .post-title{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(32px, 5vw, 46px);
+    line-height:1.12; letter-spacing:-0.01em;
+  }
+  .post-dek{
+    margin-top:18px; font-size:18px; color:rgba(31,42,36,0.7); line-height:1.55;
+  }
+  .post-meta{
+    display:flex; align-items:center; gap:16px; margin-top:28px; padding-bottom:28px;
+    border-bottom:1px solid var(--line); font-size:13px; color:rgba(31,42,36,0.6);
+  }
+  .avatar{
+    width:38px; height:38px; border-radius:50%;
+    background:linear-gradient(135deg,#E9C3C8,#C97B84);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:600; color:#fff; font-size:14px;
+  }
+  .post-meta .byline{font-weight:700; color:var(--ink);}
+  .post-meta .sep{opacity:0.4;}
+
+  /* Hero media */
+  .post-hero-media{
+    max-width:var(--measure); margin:32px auto 0; padding:0 32px;
+  }
+  .post-hero-media .media-inner{
+    height:340px; border-radius:18px;
+    background:linear-gradient(135deg,#E9C3C8,#C97B84);
+    display:flex; align-items:flex-end; padding:20px;
+  }
+  .post-hero-media .caption{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.05em; background:rgba(255,255,255,0.85); padding:5px 10px;
+    border-radius:100px; font-weight:600;
+  }
+
+  /* Article body */
+  article.content{
+    max-width:var(--measure); margin:0 auto; padding:44px 32px 0;
+    font-size:17px; color:rgba(31,42,36,0.88);
+  }
+  article.content h2{
+    font-family:'Fraunces', serif; font-weight:600; font-size:26px;
+    margin-top:44px; margin-bottom:16px; letter-spacing:-0.005em;
+  }
+  article.content h3{
+    font-family:'Fraunces', serif; font-weight:600; font-size:20px;
+    margin-top:30px; margin-bottom:12px;
+  }
+  article.content p{margin-bottom:18px;}
+  article.content ul, article.content ol{margin:0 0 18px 22px;}
+  article.content li{margin-bottom:8px;}
+  article.content strong{color:var(--ink); font-weight:700;}
+  article.content blockquote{
+    border-left:3px solid var(--teal); padding:4px 0 4px 22px; margin:28px 0;
+    font-family:'Fraunces', serif; font-style:italic; font-size:20px; color:var(--ink);
+  }
+  .pullquote{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:24px; line-height:1.4; color:var(--ink);
+    margin:40px 0; padding:28px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+
+  /* Author box */
+  .author-box{
+    max-width:var(--measure); margin:48px auto 0; padding:28px 32px;
+  }
+  .author-inner{
+    display:flex; gap:16px; align-items:flex-start; border-top:1px solid var(--line); padding-top:28px;
+  }
+  .author-inner .avatar{width:52px; height:52px; font-size:18px; flex-shrink:0;}
+  .author-inner h4{font-family:'Fraunces', serif; font-size:16px; margin-bottom:4px;}
+  .author-inner p{font-size:14px; color:rgba(31,42,36,0.65); max-width:480px;}
+
+  /* Share row */
+  .share-row{
+    max-width:var(--measure); margin:0 auto; padding:24px 32px 0;
+    display:flex; align-items:center; gap:14px;
+  }
+  .share-row span.mono{font-size:11px; color:rgba(31,42,36,0.5);}
+  .share-btn{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700;
+    transition:border-color 0.2s ease;
+  }
+  .share-btn:hover{border-color:var(--ink);}
+
+  /* Related posts */
+  .related{padding:72px 0 64px;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    margin-bottom:36px; border-bottom:1px solid var(--line); padding-bottom:18px;
+  }
+  .section-head h2{font-family:'Fraunces', serif; font-weight:600; font-size:26px;}
+  .postgrid{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;}
+  .card{
+    background:#fff; border-radius:18px; overflow:hidden; border:1px solid var(--line);
+    display:flex; flex-direction:column; transition:transform 0.25s ease, box-shadow 0.25s ease;
+    text-decoration:none; color:inherit;
+  }
+  .card:hover{transform:translateY(-4px); box-shadow:0 16px 32px rgba(31,42,36,0.09);}
+  .card-media{height:160px; position:relative; display:flex; align-items:flex-end; padding:16px;}
+  .card-media.life{background:linear-gradient(135deg,#E8D9A8,#C9A227);}
+  .card-media.health{background:linear-gradient(135deg,#E9C3C8,#C97B84);}
+  .card-media.tech{background:linear-gradient(135deg,#A9CAC4,#4A7C74);}
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:10px; text-transform:uppercase;
+    letter-spacing:0.05em; background:rgba(255,255,255,0.85); padding:5px 10px;
+    border-radius:100px; font-weight:600;
+  }
+  .card-body{padding:22px; flex:1; display:flex; flex-direction:column;}
+  .card-body h3{font-family:'Fraunces', serif; font-weight:600; font-size:18px; line-height:1.3;}
+  .card-body p{font-size:13px; color:rgba(31,42,36,0.65); margin-top:8px; flex:1;}
+  .card-meta{display:flex; justify-content:space-between; align-items:center; margin-top:16px; font-size:12px; color:rgba(31,42,36,0.5);}
+
+  /* Newsletter (shared) */
+  .newsletter{
+    background:var(--ink); color:var(--paper); border-radius:24px;
+    padding:56px; margin:24px 0 64px; display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center;
+  }
+  .newsletter h2{font-family:'Fraunces', serif; font-weight:600; font-size:28px; max-width:420px;}
+  .newsletter p{margin-top:10px; color:rgba(243,245,240,0.65); font-size:14px; max-width:420px;}
+  .nl-form{display:flex; gap:10px;}
+  .nl-form input{padding:14px 18px; border-radius:100px; border:none; width:240px; font-family:'Manrope'; font-size:14px;}
+  .nl-form button{padding:14px 24px; border-radius:100px; border:none; background:var(--gold); font-weight:700; font-size:14px; cursor:pointer; color:var(--ink); transition:transform 0.2s ease;}
+  .nl-form button:hover{transform:translateY(-2px);}
+
+  footer{border-top:1px solid var(--line); padding:48px 0 32px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr repeat(3, 1fr); gap:32px;}
+  .footer-grid h4{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:14px; color:rgba(31,42,36,0.5);}
+  .footer-grid ul{list-style:none; display:flex; flex-direction:column; gap:9px;}
+  .footer-grid ul li a{font-size:14px; color:rgba(31,42,36,0.75);}
+  .footer-grid ul li a:hover{color:var(--ink);}
+  .foot-bottom{margin-top:40px; padding-top:20px; border-top:1px solid var(--line); display:flex; justify-content:space-between; font-size:12px; color:rgba(31,42,36,0.5);}
+
+  @media (max-width: 880px){
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+    .postgrid{grid-template-columns:1fr 1fr;}
+    .newsletter{grid-template-columns:1fr; padding:36px;}
+    .nl-form{flex-direction:column;}
+    .nl-form input{width:100%;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width: 560px){
+    .postgrid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .post-hero-media .media-inner{height:220px;}
+    .pullquote{font-size:20px;}
+  }
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important;} }
+  :focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo">
+      <span class="dots"><span></span><span></span><span></span></span>
+      Threefold
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html#lifestyle">Lifestyle</a></li>
+        <li><a href="index.html#health">Health</a></li>
+        <li><a href="index.html#tech">Tech</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </nav>
+    <a href="index.html#subscribe" class="nav-cta">Subscribe</a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<div class="breadcrumb wrap">
+  <a href="index.html">Home</a><span>/</span><a href="index.html#health">Health</a><span>/</span>Hydration
+</div>
+
+<div class="post-header">
+  <span class="post-tag">● Health</span>
+  <h1 class="post-title">How Much Water Should You Really Drink Daily?</h1>
+  <p class="post-dek">The "8 glasses a day" rule is a myth. Here's what hydration science actually says — and the signs you're not getting enough.</p>
+  <div class="post-meta">
+    <div class="avatar">TF</div>
+    <span class="byline">Threefold Editorial</span>
+    <span class="sep">·</span>
+    <span>Aug 24, 2026</span>
+    <span class="sep">·</span>
+    <span>6 min read</span>
+  </div>
+</div>
+
+<div class="post-hero-media">
+  <img src="https://images.unsplash.com/photo-1534616042650-80f5c9b61f09?fm=jpg&q=80&w=1600&auto=format&fit=crop" alt="Glass of water half full, minimal light and shadow" style="width:100%; height:340px; object-fit:cover; border-radius:18px; display:block;">
+  <p style="font-size:11px; color:rgba(31,42,36,0.45); margin-top:8px; font-family:'IBM Plex Mono', monospace;">Photo by manu schwendener / Unsplash</p>
+</div>
+
+<article class="content">
+
+  <p>If you've ever tracked your water intake against the "8 glasses a day" rule, you've followed advice that traces back to a single, loosely-worded 1945 recommendation — one that was misquoted for decades and never accounted for age, activity level, climate, or body size.</p>
+
+  <p>Here's what hydration research actually supports, and how to figure out what your body needs.</p>
+
+  <h2>Where the 8-Glasses Myth Came From</h2>
+  <p>The number has no strong clinical origin. Modern research treats hydration as individual, not fixed — influenced by body weight, climate, activity, and even diet, since a large share of daily water intake comes from food, not drinks.</p>
+
+  <div class="pullquote">"There's no single magic number — your body weight is a far better starting point than a flat daily count."</div>
+
+  <h2>A More Accurate Way to Estimate Your Needs</h2>
+  <p>A simple starting formula many nutritionists use:</p>
+  <ul>
+    <li><strong>Body weight (in kg) × 30–35 ml</strong> — a reasonable daily baseline</li>
+    <li>Add roughly 350–500 ml for every 30 minutes of moderate exercise</li>
+    <li>Add more in hot or humid climates, or at high altitude</li>
+  </ul>
+  <p>For a 70 kg (154 lb) adult with a sedentary day, that's roughly 2.1–2.5 liters — noticeably different from a flat "8 glasses" (about 1.9 liters) for everyone regardless of size.</p>
+
+  <h2>Signs You're Not Drinking Enough</h2>
+  <ul>
+    <li>Urine that's consistently dark yellow (pale straw is the target)</li>
+    <li>Headaches or fatigue that improve after drinking water</li>
+    <li>Dry mouth or lips outside of obvious causes</li>
+    <li>Feeling thirsty — often a lagging indicator, not an early one</li>
+  </ul>
+
+  <h2>Signs You're Overdoing It</h2>
+  <p>Drinking far beyond what your body loses can dilute sodium levels, a condition called hyponatremia. This is rare outside of endurance sports or deliberate overconsumption, but it's a real risk — more water isn't automatically better.</p>
+
+  <h2>A Practical Daily Approach</h2>
+  <ol>
+    <li>Start the day with a glass of water before coffee</li>
+    <li>Keep a marked bottle nearby as a visual cue, not a strict quota</li>
+    <li>Let thirst and urine color guide adjustments through the day</li>
+    <li>Increase intake on workout days, hot days, or when you're sick</li>
+  </ol>
+
+  <h3>The Bottom Line</h3>
+  <p>There's no single magic number that applies to everyone. Use your body weight as a starting point, adjust for activity and climate, and let your body's own signals — urine color, energy levels, thirst — fine-tune the rest.</p>
+
+</article>
+
+<div class="author-box">
+  <div class="author-inner">
+    <div class="avatar">TF</div>
+    <div>
+      <h4>Threefold Editorial</h4>
+      <p>We research and fact-check every health piece against current clinical guidance before publishing. Got a topic you want us to cover? <a href="index.html#about" style="text-decoration:underline;">Get in touch</a>.</p>
+    </div>
+  </div>
+</div>
+
+<div class="share-row">
+  <span class="mono">Share</span>
+  <a href="#" class="share-btn" aria-label="Share on X">X</a>
+  <a href="#" class="share-btn" aria-label="Share on Pinterest">P</a>
+  <a href="#" class="share-btn" aria-label="Copy link">🔗</a>
+</div>
+
+<section class="related wrap">
+  <div class="section-head">
+    <h2>Keep reading</h2>
+  </div>
+  <div class="postgrid">
+    <article class="card">
+      <div class="card-media health"><span class="tag">Health</span></div>
+      <div class="card-body">
+        <h3>Walking after meals: the small habit with outsized returns</h3>
+        <p>What a 10-minute walk actually does to blood sugar.</p>
+        <div class="card-meta"><span>4 min</span><span>Aug 19</span></div>
+      </div>
+    </article>
+    <a href="post-lifestyle.html" class="card">
+      <div class="card-media life" style="background-image:url('https://images.unsplash.com/photo-1754982905667-f3f62cfb002d?fm=jpg&q=80&w=1200&auto=format&fit=crop'); background-size:cover; background-position:center;"><span class="tag">Lifestyle</span></div>
+      <div class="card-body">
+        <h3>A slower morning routine that actually survives a busy week</h3>
+        <p>Built for real schedules, not aspirational ones.</p>
+        <div class="card-meta"><span>5 min</span><span>Aug 20</span></div>
+      </div>
+    </a>
+    <article class="card">
+      <div class="card-media tech" style="background-image:url('https://images.unsplash.com/photo-1758577515333-e71b713059f1?fm=jpg&q=80&w=1200&auto=format&fit=crop'); background-size:cover; background-position:center;"><span class="tag">Tech</span></div>
+      <div class="card-body">
+        <h3>Your smart ring, decoded</h3>
+        <p>What the metrics mean and which ones to ignore.</p>
+        <div class="card-meta"><span>6 min</span><span>Aug 15</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="newsletter" id="subscribe">
+    <div>
+      <h2>One email. Three worlds. Every Sunday.</h2>
+      <p>Threefold Weekly — the best of lifestyle, health, and tech, in one five-minute read. No spam, unsubscribe anytime.</p>
+    </div>
+    <form class="nl-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+      <input type="email" placeholder="you@email.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="index.html" class="logo" style="margin-bottom:14px; display:flex;">
+        <span class="dots"><span></span><span></span><span></span></span>
+        Threefold
+      </a>
+      <p style="font-size:13px; color:rgba(31,42,36,0.6); max-width:260px;">A field guide to living deliberately — lifestyle, health, and tech, without the noise.</p>
+    </div>
+    <div>
+      <h4>Sections</h4>
+      <ul>
+        <li><a href="index.html#lifestyle">Lifestyle</a></li>
+        <li><a href="index.html#health">Health</a></li>
+        <li><a href="index.html#tech">Tech</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">Our story</a></li>
+        <li><a href="#">Write for us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Pinterest</a></li>
+        <li><a href="#">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Threefold. All rights reserved.</span>
+    <span>Made for the deliberately curious.</span>
+  </div>
+</footer>
+
+</body>
+</html>
